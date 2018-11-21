@@ -3,7 +3,7 @@ import Main from '@/components/main'
 
 const myrouters = [
   {
-    path: '/login',
+    path: '/login.html',
     name: 'login',
     meta: {
       title: 'Login - 登录',
@@ -20,22 +20,45 @@ const myrouters = [
       hideInMenu: true,
       notCache: true
     },
-    children: [
+    children: [{
+      path: '/home.html',
+      name: 'home',
+      meta: {
+        hideInMenu: true,
+        title: '首页',
+        notCache: true,
+        icon: 'md-home'
+      },
+      component: () => import('@/view/single-page/home')
+    }]
+  },
+  {
+    name:"test",
+    path:"/test",
+    component:Main,
+    meta:{
+      title:"{{测试路径}}"
+    },
+    children:[
       {
-        path: '/home.html',
-        name: 'home',
-        meta: {
-          hideInMenu: true,
-          title: '首页',
-          notCache: true,
-          icon: 'md-home'
+        path:'/test1.html',
+        name:'test1',
+        meta:{
+          title:"{{测试一}}",
+          access:['test:hello']
         },
-        component: () => import('@/view/single-page/home')
+        component:() => import('@/view/excel/upload-excel.vue')
+      },{
+        path:'/test2.html',
+        name:'test2',
+        meta:{
+          title:"{{测试二}}",
+          access:['test:hello1']
+        },
+        component:() => import('@/view/excel/upload-excel.vue')
       }
     ]
   },
-
-
   {
     path: '/401',
     name: 'error_401',
@@ -60,6 +83,5 @@ const myrouters = [
     },
     component: () => import('@/view/error-page/404.vue')
   }]
-
 
 export default myrouters;

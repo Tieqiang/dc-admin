@@ -14,8 +14,7 @@ import {
 import beforeClose from '@/router/before-close'
 import { saveErrorLogger } from '@/api/data'
 import router from '@/router'
-// import routers from '@/router/routers'
-import myrouters from '@/router/myrouters'
+import routers from '@/router/routers'
 import config from '@/config'
 const { homeName } = config
 
@@ -38,8 +37,7 @@ export default {
   },
   getters: {
     menuList: (state, getters, rootState) => {
-      console.log(rootState)
-      getMenuByRouter(myrouters, rootState.user.access)
+      return getMenuByRouter(routers, rootState.user.access)
     },
     errorCount: state => state.errorList.length
   },
