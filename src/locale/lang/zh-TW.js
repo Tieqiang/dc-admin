@@ -34,5 +34,8 @@ export default {
   error_store_page: '錯誤收集',
   error_logger_page: '錯誤日誌',
   query: '帶參路由',
-  params: '動態路由'
+  params: '動態路由',
+  system:'系統設置',
+  role_manager:'角色管理',
+  resource_manager:'資源權限管理'
 }

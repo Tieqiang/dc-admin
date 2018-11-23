@@ -5,6 +5,10 @@ import {forEach, hasOneOf, objEqual} from '@/libs/tools'
 
 export const TOKEN_KEY = 'token'
 
+export const getWindowHeight=()=>{
+  return window.innerHeight - 150;
+}
+
 export const setToken = (token) => {
   Cookies.set(TOKEN_KEY, token, {expires: config.cookieExpires || 1})
 }
@@ -42,7 +46,6 @@ export const getMenuByRouter = (list, access) => {
         obj.children = getMenuByRouter(item.children, access)
       }
       if (item.meta && item.meta.href) obj.href = item.meta.href
-      console.log(obj)
       if (showThisMenuEle(item, access)) {
         res.push(obj)
       } else {
@@ -50,7 +53,6 @@ export const getMenuByRouter = (list, access) => {
 
     }
   })
-  console.log(res)
   return res
 }
 
@@ -94,13 +96,10 @@ export const getRouteTitleHandled = (route) => {
 }
 
 export const showTitle = (item, vm) => {
-  console.log("显示标题")
 
   let title = item.meta.title
-  console.log(title)
   if (!title) return
   if (vm.$config.useI18n) {
-    console.log(title.includes('{{') && title.includes('}}') && vm.$config.useI18n)
     if (title.includes('{{') && title.includes('}}') && vm.$config.useI18n){
       title = title.replace(/({{[\s\S]+?}})/, (m, str) => str.replace(/{{([\s\S]*)}}/, (m, _) => vm.$t(_.trim())))
     } else{

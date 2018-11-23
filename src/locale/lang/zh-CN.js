@@ -34,5 +34,8 @@ export default {
   error_store_page: '错误收集',
   error_logger_page: '错误日志',
   query: '带参路由',
-  params: '动态路由'
+  params: '动态路由',
+  system:'系统设置',
+  role_manager:'角色管理',
+  resource_manager:'权限资源管理'
 }
