@@ -15,7 +15,6 @@ const addErrorLog = errorInfo => {
 
 class HttpRequest {
   constructor (baseUrl = baseURL) {
-    console.log(baseUrl)
     this.baseUrl = baseUrl
     this.queue = {}
   }
@@ -45,7 +44,6 @@ class HttpRequest {
       if (token) {
         config.headers.authorization = token
       }
-      console.log(config)
       // 添加全局的loading...
       if (!Object.keys(this.queue).length) {
         // Spin.show() // 不建议开启，因为界面不友好

@@ -16,7 +16,6 @@
                    :rowData="rowData"
                    :enableSorting="true"
                    :enableFilter="true"
-                   :enableRangeSelection="true"
                    rowSelection="single"
                    :gridReady="onGridReady"
                    :rowHeight="30"
@@ -111,6 +110,10 @@
           this.$Modal.error({title: "系统提示", content: "请选择一个资源进行操作"})
 
         } else {
+          if(selectedRows[0].sysFlag=='1'){
+            this.$Modal.error({title:'系统提示',content:'不能修改系统权限资源'});
+            return ;
+          }
           this.$refs.resourceForm.showResource(selectedRows[0])
         }
       },

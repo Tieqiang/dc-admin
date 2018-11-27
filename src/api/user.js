@@ -16,9 +16,23 @@ export const getUserInfo = () => {
   })
 }
 
+export const getUsersByRole=(roleId)=>{
+  return axios.request({
+    url:"api/user/user-by-role-id?roleId="+roleId,
+    method:"get"
+  })
+}
+
 export const logout = (token) => {
   return axios.request({
     url: 'logout',
     method: 'post'
+  })
+}
+
+export const findAllUser=()=>{
+  return axios.request({
+    url:'api/user/find-all',
+    method:"GET"
   })
 }

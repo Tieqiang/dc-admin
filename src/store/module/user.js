@@ -75,7 +75,6 @@ export default {
             data.authorities.forEach(item => {
               if (item.authority && item.authority.length > 0) {
                 access= item.authority.split(",");
-                console.log(access)
               }
             })
             commit('setAvator', data.avator)
