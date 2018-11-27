@@ -75,7 +75,7 @@
       >
         <p slot="extra">
           <ButtonGroup>
-            <Button type="primary" @click="setRoleUser">
+            <Button type="primary" @click="setRoleUser" v-has-permission="'login:login'">
               <Icon type="ios-build" />
               设置角色用户
             </Button>

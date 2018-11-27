@@ -10,6 +10,11 @@ const importDirective = Vue => {
    * }
    */
   Vue.directive('draggable', directive.draggable)
+  /**
+   * 权限判断 v-has-permission
+   * options=String|String只要拥有任何一个权限，就能够显示
+   */
+  Vue.directive('hasPermission',directive.hasPermission)
 }
 
 export default importDirective

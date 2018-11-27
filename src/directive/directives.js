@@ -1,4 +1,8 @@
 import { on } from '@/libs/tools'
+import store from "../store";
+import {arrayAnyOne} from "../libs/util";
+
+
 const directives = {
   draggable: {
     inserted: (el, binding, vnode) => {
@@ -39,6 +43,19 @@ const directives = {
       let bodyDom = document.querySelector(binding.value.body)
       bodyDom.style.transform = ''
     }
+  },
+  hasPermission:(el,binding,vnode)=>{
+    console.log("权限判断开始")
+    console.log(el)
+    let permission = binding.value;
+    let permissions = permission.split('|')
+    if(store.state.user.hasGetInfo){
+      let allAccess=store.state.user.access
+      if(!arrayAnyOne(permissions,allAccess)){
+        el.style.display="none"
+      }
+    }
+
   }
 }
 

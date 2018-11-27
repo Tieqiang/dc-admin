@@ -19,6 +19,17 @@ export const getToken = () => {
   else return false
 }
 
+export const arrayAnyOne=(sourceArray,targetArray)=>{
+  for(let i = 0;i<sourceArray.length;i++){
+    for(let j=0;j<targetArray.length;j++){
+      if(sourceArray[i]==targetArray[j]){
+        return true
+      }
+    }
+  }
+  return false
+}
+
 export const hasChild = (item) => {
   return item.children && item.children.length !== 0
 }
