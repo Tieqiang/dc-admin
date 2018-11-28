@@ -1,6 +1,6 @@
 <template>
   <Row :gutter="2">
-    <i-col span="8">
+    <i-col span="6">
       <Card :bordered="false"
             :dis-hover="true"
             title="角色管理"
@@ -39,7 +39,7 @@
         </ag-grid-vue>
       </Card>
     </i-col>
-    <i-col span="8">
+    <i-col span="12">
       <Card :bordered="false"
             :dis-hover="true"
             title="角色权限"
@@ -47,7 +47,7 @@
       >
         <p slot="extra">
           <ButtonGroup>
-            <Button type="primary" @click="setRoleResources">
+            <Button type="primary" @click="setRoleResources" size="small">
               <Icon type="ios-build" />
               设置角色权限资源
             </Button>
@@ -66,7 +66,7 @@
 
       </Card>
     </i-col>
-    <i-col span="8">
+    <i-col span="6">
       <Card :bordered="false"
             :dis-hover="true"
             width="20%"
@@ -75,7 +75,7 @@
       >
         <p slot="extra">
           <ButtonGroup>
-            <Button type="primary" @click="setRoleUser" v-has-permission="'login:login'">
+            <Button type="primary" @click="setRoleUser" v-has-permission="'login:login'" size="small">
               <Icon type="ios-build" />
               设置角色用户
             </Button>

@@ -3,11 +3,11 @@ import store from '@/store'
 import {getToken} from './util'
 // import { Spin } from 'iview'
 const addErrorLog = errorInfo => {
-  const {statusText, status, request: {responseURL}} = errorInfo
+  const {data,statusText, status, request: {responseURL}} = errorInfo
   let info = {
     type: 'ajax',
-    code: status,
-    mes: statusText,
+    code: data.code,
+    mes: data.description,
     url: responseURL
   }
   if (!responseURL.includes('save_error_logger')) store.dispatch('addErrorLog', info)
